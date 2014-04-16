@@ -1,0 +1,16 @@
+.clearfix{
+	display: inline-block;
+}
+.clearfix:after{
+	content: ".";
+	height: 0;
+	visibility: hidden;
+	display: block;
+	clear: both;
+}
+*html .clearfix: {
+	height: 1%;
+}
+.clearfix{
+	display: block;
+}
