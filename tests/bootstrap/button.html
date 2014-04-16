@@ -4,6 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <style type="text/css">
+    /*	body {
+		font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 14px;
+		line-height: 1.428571429;
+		color: #333333;
+		background-color: #ffffff;
+	}*/
     .btn {
         display: inline-block;
         padding: 6px 12px;
@@ -253,32 +260,128 @@
         border: 1px solid #CCC;
         padding: 20px;
     }
+    .tui-btn {
+        display: inline-block;
+        padding: 0 12px;
+        margin-bottom: 0;
+        height: 34px;
+        background-image: none;
+        border: 1px solid transparent;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 34px;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+    .tui-btn:focus {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+    .tui-btn:hover, .tui-btn:focus {
+        color: #333333;
+        text-decoration: none;
+    }
+    .tui-btn:active, .tui-btn.active {
+        background-image: none;
+        outline: 0;
+        -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    }
+    .tui-btn.disabled, 
+    .tui-btn[disabled], 
+    fieldset[disabled] .tui-btn {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.65;
+        filter: alpha(opacity=65);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .tui-btn-default {
+	  color: #333333;
+	  background-color: #ffffff;
+	  border-color: #cccccc;
+	}
+
+	.tui-btn-default:hover,
+	.tui-btn-default:focus,
+	.tui-btn-default:active,
+	.tui-btn-default.active,
+	.open .dropdown-toggle.tui-btn-default {
+	  color: #333333;
+	  background-color: #ebebeb;
+	  border-color: #adadad;
+	}
+
+	.tui-btn-default:active,
+	.tui-btn-default.active,
+	.open .dropdown-toggle.tui-btn-default {
+	  background-image: none;
+	}
+
+	.tui-btn-default.disabled,
+	.tui-btn-default[disabled],
+	fieldset[disabled] .tui-btn-default,
+	.tui-btn-default.disabled:hover,
+	.tui-btn-default[disabled]:hover,
+	fieldset[disabled] .tui-btn-default:hover,
+	.tui-btn-default.disabled:focus,
+	.tui-btn-default[disabled]:focus,
+	fieldset[disabled] .tui-btn-default:focus,
+	.tui-btn-default.disabled:active,
+	.tui-btn-default[disabled]:active,
+	fieldset[disabled] .tui-btn-default:active,
+	.tui-btn-default.disabled.active,
+	.tui-btn-default[disabled].active,
+	fieldset[disabled] .tui-btn-default.active {
+	  background-color: #ffffff;
+	  border-color: #cccccc;
+	}
+
     </style>
 </head>
 
 <body>
     <div class="item">
-        <!-- Standard button -->
-        <button type="button" class="btn btn-default">点击获取</button>
+    	<p>
+    		<button type="button" class="tui-btn tui-btn-default">店家获取</button>
 
-        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-        <button type="button" class="btn btn-primary">Primary</button>
+    		<button type="button" class="tui-btn tui-btn-default">Button</button>
+    		
+    		<button type="button" class="tui-btn tui-btn-default">button</button>
+    	</p>
+        <p>
+            <!-- Standard button -->
+            <button type="button" class="btn btn-default">点击获取</button>
 
-        <!-- Indicates a successful or positive action -->
-        <button type="button" class="btn btn-success">Success</button>
+            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+            <button type="button" class="btn btn-primary">Primary</button>
 
-        <!-- Contextual button for informational alert messages -->
-        <button type="button" class="btn btn-info">Info</button>
+            <!-- Indicates a successful or positive action -->
+            <button type="button" class="btn btn-success">Success</button>
 
-        <!-- Indicates caution should be taken with this action -->
-        <button type="button" class="btn btn-warning">Warning</button>
+            <!-- Contextual button for informational alert messages -->
+            <button type="button" class="btn btn-info">Info</button>
 
-        <!-- Indicates a dangerous or potentially negative action -->
-        <button type="button" class="btn btn-danger">Danger</button>
+            <!-- Indicates caution should be taken with this action -->
+            <button type="button" class="btn btn-warning">Warning</button>
 
-        <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
-        <button type="button" class="btn btn-link">Link</button>
+            <!-- Indicates a dangerous or potentially negative action -->
+            <button type="button" class="btn btn-danger">Danger</button>
 
+            <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+            <button type="button" class="btn btn-link">Link</button>
+        </p>
         <p>
             <button type="button" class="btn btn-primary btn-lg">Large button</button>
             <button type="button" class="btn btn-default btn-lg">Large button</button>
