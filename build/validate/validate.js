@@ -81,17 +81,39 @@ define(function (require, exports, module) {
 		{}
 	];
 
+	//验证工具列表
 	var tools = {};
 
-	//初始化参数
+	//初始化表单元素参数
 	function initSettings(el) {
 		return {};
 	}
 
-	//验证元素
+	//验证表单元素
 	function check(el) {
 		var settings = initSettings(el);
+		var conditions = settings.conditions;
+		var len = conditions.length;
+		var index = 0;
+		var tool = null;
+		var isRet = false;
+		while(!!len && index < len){
+			tool = conditions[index++];
+			var opts = tool.settings;
+			var verify = tools[tool.name];
+			$.extend(verify.settings, opts);
+			isRet = verify.check(el);
+			if(!isRet){
+				break;
+			}
+		}
+		return {
+			isRet: isRet,
+			tool: tool
+		};
 	}
+
+	function showMsg(opts){}
 
 	//验证对象
 	var verify = {
