@@ -1,5 +1,5 @@
 define(function (require, exports, module) {
-	var $ = require("../seajs/seajs/2.2.0/sea-debug.js");
+        var $ = require("../seajs/seajs/2.2.0/sea-debug.js");
 //	/**
 //	 * 验证对象
 //	 * @return {[type]} [description]
@@ -59,7 +59,8 @@ define(function (require, exports, module) {
 //	Verify.prototype.cf = function (form) {
 //
 //	}
-//
+
+
 //	/**
 //	 * 初始化数据
 //	 * @return {[type]} [description]
@@ -67,73 +68,129 @@ define(function (require, exports, module) {
 //	Verify.prototype.init = function () {
 //		this.addTool(required);
 //	}
-	function Verify(){
-		var tools = {};
-		this.addTool = function(tool){
-			var name = tool.name;
-			if(!!name && !tools[name]){
-				tools[name] = tool;
-			}
-		}
-	}
-	var settings = [
-		{
-			element: {}, //dom元素
-			conditions: [
-				{
-					name: "required",
-					settings: {}
-				}
-			]
-		},
-		{}
-	];
 
-	//验证工具列表
-	var tools = {};
-
-	//初始化表单元素参数
-	function initSettings(el) {
-		return {};
-	}
-
-	/**
-	 * 验证表单元素
-	 * @param el
-	 * @returns {{isRet: boolean, tool: *}}
-	 */
-	function check(el,opts) {
-		var settings = opts;
-		var conditions = settings.conditions;
-		var len = conditions.length;
-		var index = 0;
-		var tool = null;
-		var isRet = false;
-		while(!!len && index < len){
-			tool = conditions[index++];
-			var opts = tool.settings;
-			var verify = tools[tool.name];
-			$.extend(verify.settings, opts);
-			isRet = verify.check(el);
-			if(!isRet){
-				break;
-			}
-		}
-		return {
-			isRet: isRet,
-			tool: tool
-		};
-	}
-
-	function showMsg(opts){}
-
-	//验证对象
-	var verify = {
-		settings: {},
-		check: function (el) {
-		}
-	};
+        /**
+         *
+         * @constructor
+         */
+        function Verify() {
+            this.tools = {};
+            this.toolsName = [];
+            this.addTool = function (tool) {
+                var name = tool.name;
+                if (!!name && !this.tools[name]) {
+                    this.tools[name] = tool;
+                    this.toolsName.push(name);
+                }
+            }
+        }
 
 
+        /**
+         * 初始化表单元素参数
+         * @param el
+         * @returns {{}}
+         */
+        Verify.prototype.initSettings = function (el) {
+            var toolsName = this.toolsName,
+                toolName = "",
+                attrValue = "",
+                index = 0,
+                len = toolsName.length,
+                settings = [],
+                condition = {},
+                conditions = [];
+            while (!!len && index < len) {
+                toolName = toolsName[index++];
+                if (el.hasAttribute(toolName)) {
+                    attrValue = el.getAttribute(toolName);
+                    if (!!attrValue) {
+                        settings = $.parseJSON(attrValue);
+                    }
+                }
+                condition = {
+                    name: toolName,
+                    settings: settings
+                };
+                conditions.push(condition);
+            }
+            return {
+                element: el,
+                conditions: conditions
+            };
+        }
 
-});
+        /**
+         * 验证表单元素
+         * @param el
+         * @returns {{isRet: boolean, tool: *}}
+         */
+        Verify.prototype.check = function (opts) {
+            var _this = this,
+                el = opts.element,
+                conditions = opts.conditions,
+                len = conditions.length,
+                index = 0,
+                tool = null,
+                isRet = false,
+                userSettings = null,
+                verify = null;
+            while (!!len && index < len) {
+                tool = conditions[index++];
+                userSettings = tool.settings;
+                verify = _this.tools[tool.name];
+                $.extend(verify.settings, userSettings);
+                isRet = verify.check(el);
+                if (!isRet) {
+                    break;
+                }
+            }
+            return {
+                isRet: isRet,
+                tool: tool
+            };
+        }
+
+
+        /**
+         * 显示信息
+         * @param opts
+         */
+        Verify.prototype.showMsg = function (opts) {
+        }
+
+
+        var elementSettings = {
+            element: null,  // dom
+            conditions: []  // [condition..cons]
+        };
+
+        var condition = {
+            name: "",       //verify方法
+            settings: {}    //方法設置
+        };
+
+        var settings = [
+            {
+                element: {}, //dom元素
+                conditions: [
+                    {
+                        name: "required",
+                        settings: {}
+                    }
+                ]
+            },
+            {}
+        ];
+
+        //验证对象
+        var verify = {
+            settings: {},
+            check: function (el) {
+            }
+        };
+
+
+    }
+)
+;
