@@ -67,7 +67,15 @@ define(function (require, exports, module) {
 //	Verify.prototype.init = function () {
 //		this.addTool(required);
 //	}
-
+	function Verify(){
+		var tools = {};
+		this.addTool = function(tool){
+			var name = tool.name;
+			if(!!name && !tools[name]){
+				tools[name] = tool;
+			}
+		}
+	}
 	var settings = [
 		{
 			element: {}, //dom元素
@@ -89,9 +97,13 @@ define(function (require, exports, module) {
 		return {};
 	}
 
-	//验证表单元素
-	function check(el) {
-		var settings = initSettings(el);
+	/**
+	 * 验证表单元素
+	 * @param el
+	 * @returns {{isRet: boolean, tool: *}}
+	 */
+	function check(el,opts) {
+		var settings = opts;
 		var conditions = settings.conditions;
 		var len = conditions.length;
 		var index = 0;

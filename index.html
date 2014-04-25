@@ -9,8 +9,13 @@
     <script type="text/javascript">
         function foo(name){}
 
-        var f = foo;
-        alert(foo.arguments);
+
+        window.onload = function(e){
+            var f = foo;
+            alert(foo.arguments);
+            var cdo = document.getElementById("ccc");
+            alert(cdo);
+        };
     </script>
 </head>
 
@@ -18,6 +23,7 @@
     <pre>
         Hello World
     </pre>
+    <div id="ccc"></div>
 </body>
 
 </html>
