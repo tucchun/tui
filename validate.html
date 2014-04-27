@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh_cn">
+    <meta charset="UTF-8">
+    <title>validate</title>
+    <script type="text/javascript" src="./build/seajs/seajs/2.2.0/sea-debug.js"></script>
+</head>
+<body>
+<form action="" id="js-form">
+    <input type="text" data-required/>
+    <input type="text" data-required/>
+    <input type="submit" id="js-submit" value="submit"/>
+</form>
+</body>
+<script type="text/javascript">
+    seajs.config({
+        alias: {
+            "jquery": "/tui/build/jquery/jquery/1.10.1/jquery-debug.js",
+            "validate": "/tui/build/validate/validate.js"
+        }
+    });
+    seajs.use(["jquery", "validate"], function ($, validate) {
+        $(function () {
+            var f = document.getElementById("js-form");
+            f.onsubmit = function () {
+                try {
+                    var v = validate.Verify;
+                    var vc = new v(f);
+                    vc.check();
+                    if (!vc.isRet) {
+                        return;
+                    }
+                    return;
+                } catch (e) {
+                    console.log(e);
+                    return false;
+                }
+
+            };
+        });
+    });
+</script>
+</html>

@@ -1,29 +1,98 @@
 <!doctype html>
-<html>
-
+<html lang="zh_cn">
 <head>
-    <meta charset="utf-8">
-    <title>Examples for Sea.js</title>
-    <style>
-    </style>
-    <script type="text/javascript">
-        function foo(name){}
+    <meta charset="UTF-8">
+    <title>queue</title>
 
-
-        window.onload = function(e){
-            var f = foo;
-            alert(foo.arguments);
-            var cdo = document.getElementById("ccc");
-            alert(cdo);
-        };
-    </script>
 </head>
-
 <body>
-    <pre>
-        Hello World
-    </pre>
-    <div id="ccc"></div>
+<div id="test"></div>
 </body>
+<script type="text/javascript">
+    var Queue = function () {
+        this.list = [];
+    };
+    Queue.prototype = {
+        constructor: Queue,
+        queue: function (fn) {
+            this.list.push(fn);
+            return this;
+        },
+        wait: function(ms){
+            this.list.push(ms);
+            return this;
+        },
+        dequeue: function () {
+            var self = this,
+                    list = self.list,
+                    el = list.shift() || function () {
+                    };
+            if (typeof el === "number") {
+                setTimeout(function () {
+                    self.dequeue();
+                }, el);
+            } else if (typeof el === "function") {
+                el.call(this);
+                if (list.length) {
+                    self.dequeue();
+                }
+            }
+            /*var fn = this.list.shift() || function () {
+             };
+             fn.call(this);*/
+        }
+    };
+    var el = document.getElementById("test");
 
+    var stepA = function () {
+                console.log(1);
+            },
+            stepB = function () {
+                console.log(2);
+            },
+            stepC = function () {
+                console.log(3);
+            };
+    var async_stepA = function () {
+                var self = this;
+                el.innerHTML = 1;
+                setTimeout(function () {
+                    self.dequeue();
+                }, 1000);
+            },
+            async_stepB = function () {
+                var self = this;
+                el.innerHTML = 2;
+                setTimeout(function () {
+                    self.dequeue();
+                }, 1000)
+            },
+            async_stepC = function () {
+                var self = this;
+                el.innerHTML = 3;
+                setTimeout(function () {
+                    self.dequeue();
+                }, 1000);
+            };
+
+    var q = new Queue();
+    q.wait(1000);
+    q.queue(async_stepA);
+    q.wait(1000);
+    q.queue(async_stepB);
+    q.wait(1000);
+    q.queue(async_stepC);
+    q.dequeue();
+//    q.queue(stepA);
+//    q.queue(stepB);
+//    q.queue(stepC);
+//    while (q.list.length) {
+//        q.dequeue();
+//    }
+//    var async_queue = new Queue();
+//    async_queue.queue(async_stepA);
+//    async_queue.queue(async_stepB);
+//    async_queue.queue(async_stepC);
+//    async_queue.dequeue();
+</script>
 </html>
