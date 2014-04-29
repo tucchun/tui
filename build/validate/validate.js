@@ -285,7 +285,10 @@ define(function (require, exports, module) {
 				verifyName = condition.name,
 				settings = condition.settings,
 				opts = {element: element, settings: settings};
-			self.verifies[verifyName].apply(self, opts);
+			var f = self.verifies[verifyName];
+			var o = Array.prototype.slice.call(opts,0);
+			f.call(self,opts);
+//			self.verifies[verifyName].apply(self, opts);
 		};
 
 		Verify.prototype.showMsg = function (isRet, opts) {
