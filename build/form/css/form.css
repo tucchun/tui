@@ -1,0 +1,126 @@
+@charset "utf-8";
+.form-element {
+    position: relative;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.form-element .form-text {
+    height: 16px;
+    line-height: 16px;
+    width: 372px;
+    padding: 8px;
+    color: #999;
+    border: 1px solid #CCC;
+}
+
+.form-element .form-textarea {
+    height: 100px;
+    line-height: 16px;
+    width: 372px;
+    padding: 8px;
+    color: #999;
+    border: 1px solid #CCC;
+    resize: none;
+}
+
+.form-element .form-text:hover {
+    border-color: #afafaf;
+}
+
+.form-element .form-text:focus {
+    color: #666;
+    border-color: #808080;
+}
+
+.form-element .form-element-inner {
+    display: inline-block;
+    position: relative;
+}
+
+.form-element .form-element-tip {
+    display: block;
+    visibility: hidden;
+    vertical-align: top;
+}
+
+.form-element-error .form-element-tip,
+.form-element-success .form-element-tip {
+    visibility: visible;
+}
+
+.form-element-success .form-text,
+.form-element-success select,
+.form-element-success .form-text:hover,
+.form-element-success select:hover,
+.form-element-success .form-text:hover:hover,
+.form-element-success select:hover:hover,
+.form-element-success .form-text:hover:focus,
+.form-element-success select:hover:focus {
+    /*border-color: #ff8f8f;*/
+}
+
+.form-element-success .form-element-img {
+    background: url(images/form.png) no-repeat -6px 6px;
+    height: 34px;
+}
+
+.form-element-error .form-text,
+.form-element-error select,
+.form-element-error .form-text:hover,
+.form-element-error select:hover,
+.form-element-error .form-text:hover:hover,
+.form-element-error select:hover:hover,
+.form-element-error .form-text:hover:focus,
+.form-element-error select:hover:focus {
+    border-color: #ff8f8f;
+}
+
+.form-element-error .form-element-img {
+    background: url(images/form.png) no-repeat -30px 6px;
+    height: 34px;
+}
+
+.form-element-img {
+    background: url(images/form.png) no-repeat -14px 14px;
+    display: inline-block;
+    height: 34px;
+    width: 10px;
+    vertical-align: top;
+}
+
+.form-element-txt {
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    position: relative;
+    vertical-align: top;
+}
+
+.form-element .form-label {
+    /* margin: 3px 0; */
+    /*font-size: 13px;*/
+    color: #999;
+    display: block;
+    height: 34px;
+    line-height: 34px;
+    vertical-align: top;
+}
+
+.form-element .form-text-tip {
+    font-size: 13px;
+    left: 8px;
+    position: absolute;
+    top: 10px;
+    color: #9A9A9A;
+}
+
+.form-label-inline .form-label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+
+.form-tip-inline .form-element-tip {
+    display: inline-block;
+}
