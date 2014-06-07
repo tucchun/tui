@@ -35,6 +35,8 @@
 
 .form-element .form-element-inner {
     display: inline-block;
+    *display:inline;
+    *zoom:1;
     position: relative;
 }
 
@@ -52,11 +54,7 @@
 .form-element-success .form-text,
 .form-element-success select,
 .form-element-success .form-text:hover,
-.form-element-success select:hover,
-.form-element-success .form-text:hover:hover,
-.form-element-success select:hover:hover,
-.form-element-success .form-text:hover:focus,
-.form-element-success select:hover:focus {
+.form-element-success select:hover{
     /*border-color: #ff8f8f;*/
 }
 
@@ -66,13 +64,12 @@
 }
 
 .form-element-error .form-text,
-.form-element-error select,
+.form-element-error .form-textarea,
 .form-element-error .form-text:hover,
-.form-element-error select:hover,
-.form-element-error .form-text:hover:hover,
-.form-element-error select:hover:hover,
-.form-element-error .form-text:hover:focus,
-.form-element-error select:hover:focus {
+.form-element-error .form-textarea:hover,
+.form-element-error .form-text:focus,
+.form-element-error select:focus,
+.form-element-error .form-textarea:focus{
     border-color: #ff8f8f;
 }
 
