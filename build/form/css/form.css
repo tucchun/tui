@@ -120,4 +120,6 @@
 
 .form-tip-inline .form-element-tip {
     display: inline-block;
+    *display:inline;
+    *zoom:1;
 }
