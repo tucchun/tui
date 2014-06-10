@@ -3,91 +3,26 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="http://css1.dldcdn.com/static/front/default/css/base.css?v=20130227">
+    <link rel="stylesheet" href="../normalize/v3.0.1/normalize.css">
     <link rel="stylesheet" href="./css/form.css"/>
+    <link rel="stylesheet" href="../reset/base.css"/>
     <style type="text/css">
-        * {
-            *z-index: 0;
-        }
 
-        .fb-layout {
-            width: 980px;
-            margin: 10px auto;
-        }
-
-        .fb-h-title {
-            margin: 24px 0;
-        }
-
-        .fb-inline-ul {
-            border-bottom: 2px solid #22ade6;
-        }
-
-        .fb-inline-ul li {
-            padding: 10px 40px;
-            float: left;
-            font-size: 21px;
-        }
-
-        .fb-inline-ul li:hover {
-            background: #22ade6;
-            color: #FFF;
-            cursor: pointer;
-        }
-
-        .fb-inline-ul li.active {
-            background: #22ade6;
-            color: #FFF;
-            cursor: default;
-        }
-
-        .fb-tab-item-left {
-            float: left;
-            /*width: 572px;*/
-        }
-
-        .fb-tab-item-right {
-            float: right;
-        }
     </style>
 </head>
 
 <body>
-<div class='fb-header fb-layout clearfix'>
-    <div class="clearfix fb-h-title">
-        <div class="fl">
-            <a href="/">
-                <img src="http://i2.dld.com/static/images/common/logo.png?v=20130227">
-            </a>
-            <span class='f20 ml10'>意见反馈</span>
-        </div>
-        <div class="fr">
+<!--<div class="form-element form-element-error form-label-inline" style="z-index: 1">
+    <label class="form-label">密&nbsp;码：</label>
 
-        </div>
-    </div>
-</div>
-<div class='fb-tab fb-layout'>
-    <ul class='fb-inline-ul clearfix'>
-        <li class='active'>建议</li>
-        <li>投诉</li>
-        <li>纠错</li>
-    </ul>
-</div>
-<div class='fb-content fb-layout'>
-    <div class="fb-tab-item clearfix">
-        <div class="fb-tab-item-left">
-
-            <div class="form-element form-element-error form-label-inline" style="z-index: 1">
-                <label class="form-label">密&nbsp;码：</label>
-
-                <div class="form-element-inner">
-                    <!--<select>
+    <div class="form-element-inner">
+        &lt;!&ndash;<select>
                         <option>请选择</option>
-                    </select>-->
+                    </select>&ndash;&gt;
                     <div class="form-select">
                         <div class="clearfix">
-                            <span class="form-text form-select-active">建议类型</span>
-                            <a class="form-select-a"></a>
+                            <div class="form-select-txt">建议类型</div>
+                            <span class="form-select-tip"></span>
                         </div>
                     </div>
                     <ul class="form-select-list">
@@ -102,143 +37,169 @@
                         <span class="form-element-txt">请输入密码</span>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
-            <div class="form-element form-element-success form-label-inline form-tip-inline">
-                <label class="form-label">用户名：</label>
+<div class="form-element form-element-error form-label-inline" style="z-index: 1">
+    <label class="form-label">密&nbsp;码：</label>
 
-                <div class="form-element-inner">
-                    <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
-                    <span class="form-text-tip">用户名</span>
-
-                    <div class="form-element-tip">
-                        <span class="form-element-img"></span>
-                        <span class="form-element-txt"></span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="form-element form-element-error form-label-inline">
-                <label class="form-label">密&nbsp;码：</label>
-
-                <div class="form-element-inner">
-                    <textarea class="form-textarea"></textarea>
-                    <span class="form-text-tip">密&nbsp;码</span>
-
-                    <div class="form-element-tip">
-                        <span class="form-element-img"></span>
-                        <span class="form-element-txt">请输入密码</span>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-element form-element-error form-label-inline form-tip-inline">
-                <label class="form-label">密&nbsp;码：</label>
-
-                <div class="form-element-inner">
-                    <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
-                    <span class="form-text-tip">密&nbsp;码</span>
-
-                    <div class="form-element-tip">
-                        <span class="form-element-img"></span>
-                        <span class="form-element-txt">请输入密码</span>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-element form-element-success form-label-inline">
-                <label class="form-label">用户名：</label>
-
-                <div class="form-element-inner">
-                    <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
-                    <span class="form-text-tip">用户名</span>
-
-                    <div class="form-element-tip">
-                        <span class="form-element-img"></span>
-                        <span class="form-element-txt"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-element form-element-error form-label-inline">
-                <label class="form-label">密&nbsp;码：</label>
-
-                <div class="form-element-inner">
-                    <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
-                    <span class="form-text-tip">密&nbsp;码</span>
-
-                    <div class="form-element-tip">
-                        <span class="form-element-img"></span>
-                        <span class="form-element-txt">请输入密码</span>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-element form-element-success">
-                <label class="form-label">用户名：</label>
-
-                <div class="form-element-inner">
-                    <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
-                    <span class="form-text-tip">用户名</span>
-
-                    <div class="form-element-tip">
-                        <span class="form-element-img"></span>
-                        <span class="form-element-txt"></span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="form-element form-element-error">
-                <label class="form-label">密&nbsp;码：</label>
-
-                <div class="form-element-inner">
-                    <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
-                    <span class="form-text-tip">密&nbsp;码</span>
-
-                    <div class="form-element-tip">
-                        <span class="form-element-img"></span>
-                        <span class="form-element-txt">请输入密码</span>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="form-element form-element-success form-tip-inline">
-                <label class="form-label">用户名：</label>
-
-                <div class="form-element-inner">
-                    <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
-                    <span class="form-text-tip">用户名</span>
-
-                    <div class="form-element-tip">
-                        <span class="form-element-img"></span>
-                        <span class="form-element-txt"></span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="form-element form-element-error form-tip-inline">
-                <label class="form-label">密&nbsp;码：</label>
-
-                <div class="form-element-inner">
-                    <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
-                    <span class="form-text-tip">密&nbsp;码</span>
-
-                    <div class="form-element-tip">
-                        <span class="form-element-img"></span>
-                        <span class="form-element-txt">请输入密码</span>
-                    </div>
-                </div>
+    <div class="form-element-inner">
+        <!--<select>
+            <option>请选择</option>
+        </select>-->
+        <div class="form-select">
+            <div class="clearfix">
+                <div class="form-select-txt">建议类型</div>
+                <span class="form-select-tip"></span>
             </div>
         </div>
-        <div class="fb-tab-item-right"></div>
+        <ul class="form-select-list">
+            <li>建议类型</li>
+            <li>建议类型</li>
+            <li>建议类型</li>
+        </ul>
+        <select class="hide">
+
+        </select>
+        <span class="form-text-tip"></span>
+
+        <div class="form-element-tip">
+            <span class="form-element-img"></span>
+            <span class="form-element-txt">请输入密码</span>
+        </div>
+    </div>
+</div>
+
+<div class="form-element form-element-success form-label-inline form-tip-inline">
+    <label class="form-label">用户名：</label>
+
+    <div class="form-element-inner">
+        <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
+        <span class="form-text-tip">用户名</span>
+
+        <div class="form-element-tip">
+            <span class="form-element-img"></span>
+            <span class="form-element-txt"></span>
+        </div>
+    </div>
+
+</div>
+
+<div class="form-element form-element-error form-label-inline">
+    <label class="form-label">密&nbsp;码：</label>
+
+    <div class="form-element-inner">
+        <textarea class="form-textarea"></textarea>
+        <span class="form-text-tip">密&nbsp;码</span>
+
+        <div class="form-element-tip">
+            <span class="form-element-img"></span>
+            <span class="form-element-txt">请输入密码</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-element form-element-error form-label-inline form-tip-inline">
+    <label class="form-label">密&nbsp;码：</label>
+
+    <div class="form-element-inner">
+        <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
+        <span class="form-text-tip">密&nbsp;码</span>
+
+        <div class="form-element-tip">
+            <span class="form-element-img"></span>
+            <span class="form-element-txt">请输入密码</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-element form-element-success form-label-inline">
+    <label class="form-label">用户名：</label>
+
+    <div class="form-element-inner">
+        <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
+        <span class="form-text-tip">用户名</span>
+
+        <div class="form-element-tip">
+            <span class="form-element-img"></span>
+            <span class="form-element-txt"></span>
+        </div>
+    </div>
+</div>
+
+<div class="form-element form-element-error form-label-inline">
+    <label class="form-label">密&nbsp;码：</label>
+
+    <div class="form-element-inner">
+        <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
+        <span class="form-text-tip">密&nbsp;码</span>
+
+        <div class="form-element-tip">
+            <span class="form-element-img"></span>
+            <span class="form-element-txt">请输入密码</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-element form-element-success">
+    <label class="form-label">用户名：</label>
+
+    <div class="form-element-inner">
+        <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
+        <span class="form-text-tip">用户名</span>
+
+        <div class="form-element-tip">
+            <span class="form-element-img"></span>
+            <span class="form-element-txt"></span>
+        </div>
+    </div>
+
+</div>
+
+<div class="form-element form-element-error">
+    <label class="form-label">密&nbsp;码：</label>
+
+    <div class="form-element-inner">
+        <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
+        <span class="form-text-tip">密&nbsp;码</span>
+
+        <div class="form-element-tip">
+            <span class="form-element-img"></span>
+            <span class="form-element-txt">请输入密码</span>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="form-element form-element-success form-tip-inline">
+    <label class="form-label">用户名：</label>
+
+    <div class="form-element-inner">
+        <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
+        <span class="form-text-tip">用户名</span>
+
+        <div class="form-element-tip">
+            <span class="form-element-img"></span>
+            <span class="form-element-txt"></span>
+        </div>
+    </div>
+
+</div>
+
+<div class="form-element form-element-error form-tip-inline">
+    <label class="form-label">密&nbsp;码：</label>
+
+    <div class="form-element-inner">
+        <input type="text" class="form-text" name="USER_BEFORENAME" id="USER_BEFORENAME">
+        <span class="form-text-tip">密&nbsp;码</span>
+
+        <div class="form-element-tip">
+            <span class="form-element-img"></span>
+            <span class="form-element-txt">请输入密码</span>
+        </div>
     </div>
 </div>
 </body>
