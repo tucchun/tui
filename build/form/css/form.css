@@ -35,8 +35,8 @@
 
 .form-element .form-element-inner {
     display: inline-block;
-    *display:inline;
-    *zoom:1;
+    *display: inline;
+    *zoom: 1;
     position: relative;
 }
 
@@ -54,7 +54,7 @@
 .form-element-success .form-text,
 .form-element-success select,
 .form-element-success .form-text:hover,
-.form-element-success select:hover{
+.form-element-success select:hover {
     /*border-color: #ff8f8f;*/
 }
 
@@ -69,7 +69,7 @@
 .form-element-error .form-textarea:hover,
 .form-element-error .form-text:focus,
 .form-element-error select:focus,
-.form-element-error .form-textarea:focus{
+.form-element-error .form-textarea:focus {
     border-color: #ff8f8f;
 }
 
@@ -120,6 +120,51 @@
 
 .form-tip-inline .form-element-tip {
     display: inline-block;
-    *display:inline;
-    *zoom:1;
+    *display: inline;
+    *zoom: 1;
+}
+
+.form-select {
+    border: 1px solid #CCC;
+    height: 34px;
+    width: 340px;
+}
+
+.form-select .form-select-active, .form-select .form-select-a {
+    display: inline-block;
+    float: left;
+}
+
+.form-select .form-select-active {
+    width: 300px;
+    border: 0;
+}
+
+.form-select .form-select-a {
+    width: 20px;
+    height: 34px;
+}
+
+.form-select-list {
+    position: absolute;
+    background: #FFF;
+    z-index: 9999;
+    width: 340px;
+    border-width: 0 1px 1px 1px;
+    border-color: #CCC;
+    border-style: solid;
+}
+
+.form-select-list li {
+    height: 16px;
+    /*line-height: 30px;*/
+    padding: 8px;
+}
+
+.form-select-list li:hover {
+    background: #CCC;
+    cursor: pointer;
+}
+.form-element{
+    *z-index: 0;  /*ie6/ie7 z-index bug*/
 }

@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="http://css1.dldcdn.com/static/front/default/css/base.css?v=20130227">
     <link rel="stylesheet" href="./css/form.css"/>
     <style type="text/css">
+        * {
+            *z-index: 0;
+        }
+
         .fb-layout {
             width: 980px;
             margin: 10px auto;
@@ -45,7 +49,6 @@
         .fb-tab-item-right {
             float: right;
         }
-
     </style>
 </head>
 
@@ -74,13 +77,25 @@
     <div class="fb-tab-item clearfix">
         <div class="fb-tab-item-left">
 
-
-            <div class="form-element form-element-error form-label-inline">
+            <div class="form-element form-element-error form-label-inline" style="z-index: 1">
                 <label class="form-label">密&nbsp;码：</label>
 
                 <div class="form-element-inner">
-                    <textarea class="form-textarea"></textarea>
-                    <span class="form-text-tip">密&nbsp;码</span>
+                    <!--<select>
+                        <option>请选择</option>
+                    </select>-->
+                    <div class="form-select">
+                        <div class="clearfix">
+                            <span class="form-text form-select-active">建议类型</span>
+                            <a class="form-select-a"></a>
+                        </div>
+                    </div>
+                    <ul class="form-select-list">
+                        <li>建议类型</li>
+                        <li>建议类型</li>
+                        <li>建议类型</li>
+                    </ul>
+                    <span class="form-text-tip"></span>
 
                     <div class="form-element-tip">
                         <span class="form-element-img"></span>
@@ -103,6 +118,21 @@
                 </div>
 
             </div>
+
+            <div class="form-element form-element-error form-label-inline">
+                <label class="form-label">密&nbsp;码：</label>
+
+                <div class="form-element-inner">
+                    <textarea class="form-textarea"></textarea>
+                    <span class="form-text-tip">密&nbsp;码</span>
+
+                    <div class="form-element-tip">
+                        <span class="form-element-img"></span>
+                        <span class="form-element-txt">请输入密码</span>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="form-element form-element-error form-label-inline form-tip-inline">
                 <label class="form-label">密&nbsp;码：</label>
