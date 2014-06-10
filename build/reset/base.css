@@ -1,0 +1,46 @@
+@charset "utf-8";
+body {
+	background: none repeat scroll 0 0 #FFF;
+	color: #666;
+	font: 12px/1 "Microsoft YaHei", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #666;
+	outline: medium none;
+	text-decoration: none;
+	-webkit-transition: background .2s ease, border .2s ease, color .2s ease,
+	opacity .2s ease-in-out;
+	-moz-transition: background .2s ease, border .2s ease, color .2s ease,
+	opacity .2s ease-in-out;
+	-ms-transition: background .2s ease, border .2s ease, color .2s ease,
+	opacity .2s ease-in-out;
+	-o-transition: background .2s ease, border .2s ease, color .2s ease,
+	opacity .2s ease-in-out;
+	transition: background .2s ease, border .2s ease, color .2s ease,
+	opacity .2s ease-in-out;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+i, cite, em {
+	font-style: normal;
+}
+
+.clearfix:after, .clearfix:before {
+	content: "";
+	display: table;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+.hide{
+	display: none;
+}
