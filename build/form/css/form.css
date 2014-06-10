@@ -66,11 +66,13 @@
 
 .form-element-error .form-text,
 .form-element-error .form-textarea,
+.form-element-error .form-select,
 .form-element-error .form-text:hover,
 .form-element-error .form-textarea:hover,
+.form-element-error .form-select:hover,
 .form-element-error .form-text:focus,
-.form-element-error select:focus,
-.form-element-error .form-textarea:focus {
+.form-element-error .form-textarea:focus,
+.form-element-error .form-select:focus{
 	border-color: #ff8f8f;
 }
 
@@ -130,6 +132,7 @@
 	border: 1px solid #CCC;
 	/*height: 34px;*/
 	width: 100%;
+	cursor: pointer;
 }
 
 .form-element {

@@ -6,59 +6,64 @@
     <link rel="stylesheet" href="../normalize/v3.0.1/normalize.css">
     <link rel="stylesheet" href="./css/form.css"/>
     <link rel="stylesheet" href="../reset/base.css"/>
+    <script src="../jquery/jquery/1.10.1/jquery.js"></script>
     <style type="text/css">
 
     </style>
+    <script type="text/javascript">
+        (function ($, undefined) {
+            $(document).ready(function (e) {
+                /**     下拉框 [[     */
+                $(".form-select").on("click", function (e) {
+                    var $this = $(this),
+                        $parent = $this.parents(".form-element"),
+                        $list = $parent.find(".form-select-list");
+                    $list.toggleClass("hide");
+                    e.stopPropagation();
+                });
+
+                $(".form-select-list > li").on("click",function(e){
+                    var $this = $(this),
+                        value = $this.html().trim(),
+                        index = $this.index(),
+                        $parent = $this.parents(".form-element"),
+                        $txt = $parent.find(".form-select-txt"),
+                        $source = $parent.find(".from-select-source");
+                    $txt.html(value);
+                    $source.children().removeAttr("selected");
+                    $source.children().eq(index).attr("selected","selected");
+                });
+
+                $("body").on("click",function(e){
+                    $(".form-select-list").addClass("hide");
+                });
+
+                /**     下拉框 ]]     */
+            });
+        })(jQuery);
+    </script>
 </head>
 
 <body>
-<!--<div class="form-element form-element-error form-label-inline" style="z-index: 1">
-    <label class="form-label">密&nbsp;码：</label>
-
-    <div class="form-element-inner">
-        &lt;!&ndash;<select>
-                        <option>请选择</option>
-                    </select>&ndash;&gt;
-                    <div class="form-select">
-                        <div class="clearfix">
-                            <div class="form-select-txt">建议类型</div>
-                            <span class="form-select-tip"></span>
-                        </div>
-                    </div>
-                    <ul class="form-select-list">
-                        <li>建议类型</li>
-                        <li>建议类型</li>
-                        <li>建议类型</li>
-                    </ul>
-                    <span class="form-text-tip"></span>
-
-                    <div class="form-element-tip">
-                        <span class="form-element-img"></span>
-                        <span class="form-element-txt">请输入密码</span>
-                    </div>
-                </div>
-            </div>-->
-
 <div class="form-element form-element-error form-label-inline" style="z-index: 1">
     <label class="form-label">密&nbsp;码：</label>
 
     <div class="form-element-inner">
-        <!--<select>
-            <option>请选择</option>
-        </select>-->
         <div class="form-select">
             <div class="clearfix">
                 <div class="form-select-txt">建议类型</div>
                 <span class="form-select-tip"></span>
             </div>
         </div>
-        <ul class="form-select-list">
+        <ul class="form-select-list hide">
             <li>建议类型</li>
-            <li>建议类型</li>
-            <li>建议类型</li>
+            <li>投诉类型</li>
+            <li>纠错类型</li>
         </ul>
-        <select class="hide">
-
+        <select class="from-select-source hide">
+            <option value="建议类型">建议类型</option>
+            <option value="投诉类型">投诉类型</option>
+            <option value="纠错类型">纠错类型</option>
         </select>
         <span class="form-text-tip"></span>
 
