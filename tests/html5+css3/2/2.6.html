@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>Selectors API</title>
+
+</head>
+<body>
+	<section>
+		<table>
+			<tr>
+				<td>1</td>
+				<td>一个人生活</td>
+				<td>温岚</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>让我爱你</td>
+				<td>胡夏</td>
+			</tr>
+		</table>
+		<button type="button" id="findHover" autofocus>查看鼠标焦点目标位置</button>
+		<div id="hoverResult"></div>
+		<script type="text/javascript">
+			document.getElementById("findHover").onclick = function(){
+				var hovered = document.querySelector("td:hover");
+				if (hovered) {
+					document.getElementById("hoverResult").innerHTML = hovered.innerHTML;
+				};
+			};
+			 var jsonStr = "{\"total\":100,\"data\":[{\"id\":10001,\"name\":\"scott\"},{\"id\":10002,\"name\":\"tiger\"}]}"; // 属性必须用“”；
+			
+			 var j = window.JSON.parse(jsonStr);
+			 console.log(j);
+			 console.log(JSON.stringify(j))
+			 console.log(typeof j.const);
+		</script>
+	</section>
+</body>
+</html>
