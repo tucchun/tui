@@ -1,0 +1,6 @@
+*{padding: 0;margin: 0;}
+#myCanvas{
+	border: 1px solid #ccc;
+	/*height: 100px;
+	width: 200px;*/
+}

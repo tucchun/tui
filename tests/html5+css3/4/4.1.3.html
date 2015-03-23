@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1" />
+	<title></title>
+</head>
+<body>
+	<form action="demo_form.php" method="get">
+		<input type="number" name="number1" min="1" max="20" step="4">
+		<br>
+		<input id="js-range" type="range" output="js-range2.value + parseInt(js-range.value) " name="js-range" step="1" min="1" max="30">
+		<output name="js-range2"></output>
+		<br>
+		<input type="date" name="date1"><br>
+		<input type="month"><br>
+		<input type="week"><br>
+		<input type="time"><br>
+		<input type="datetime"><br>
+		<input type="datetime-locall"><br>
+		<input type="tel"><br>
+		<input type="color"><br>
+		<br>
+		<input type="button" value="range值" id="js-range-btn">
+		<br>
+		<input type="submit" value=" 提交">
+		<br>
+		<output name="" id="result1" style="display: inline-block; width: 50px;"></output>
+		<input name="" type="range" id="range1" oninput="result1.value = range1.value" min="2" max="200" step="1"/>
+		<br>
+
+
+	</form>
+	<script type="text/javascript">
+		function $(id){
+			return document.getElementById(id);
+		}
+
+		var range = $("js-range");
+		$("js-range-btn").onclick = function(){
+			alert(range.value)
+		}
+		
+	</script>
+</body>
+</html>
