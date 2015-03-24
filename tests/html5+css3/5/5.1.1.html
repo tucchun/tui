@@ -5,12 +5,40 @@
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1" />
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="./style.css">
+	<script type="text/javascript">
+		function clearMap(){
+			context.clearRect(0, 0, 300, 200);
+		}
+	</script>
 </head>
 <body>
-	<canvas id="myCanvas" width="300" height="150"></canvas>
+	<div id="container">
+		<canvas id="myCanvas" width="300" height="150"></canvas>
+		<input type="button" value="重置画布" onclick="clearMap();">
+	</div>
+	
 	<script type="text/javascript">
 		var c = document.getElementById("myCanvas"),
 			context = c.getContext("2d");
+
+	/*	context.fillStyle = "#f33";
+		context.strokeStyle="#000";
+		context.moveTo(50,25);
+		context.lineTo(100,15);
+		context.lineTo(200,15);
+		context.lineTo(100,4);
+		context.lineTo(150,80);
+		context.lineTo(150, 75);
+		context.lineTo(300,150);
+		context.stroke();
+		context.fill();
+		context.beginPath();
+		context.arc(150, 75, 50, 0, Math.PI*2, true);
+		context.closePath();
+		context.stroke();
+		context.fill();*/
+
+
 		/*context.fillStyle="#FF00FF";
 		context.fillRect(50, 25, 100, 50);
 		context.moveTo(0,0);
@@ -28,26 +56,149 @@
 		// context.closePath();
 		// context.fill();
 
-		var i = 0,
+	/*	var i = 0,
 			length = 5;
-		// for(; i < length; i++){
-		// 	context.strokeStyle = "#FF3333";
-		// 	context.beginPath();
-		// 	context.arc(0, 150, i*10, 0, Math.PI*2/2, true);
-		// 	context.stroke();
-		// }
+		for(; i < length; i++){
+			context.strokeStyle = "#FF3333";
+			context.beginPath();
+			context.arc(0, 150, (i++)*5, 0, Math.PI*2, true);
+			context.stroke();
+		}
 		context.strokeStyle = "#FF3333";
 		
 		
 		var timer = setTimeout(function(){
 			if (i < 15) {
 				context.beginPath();
-				context.arc(0, 150, (i++)*10, 0, Math.PI*3/2, true);
+				context.arc(150, 75, (i++)*5, 0, Math.PI*2, true);
 				context.closePath();
 				context.stroke();
 				setTimeout(arguments.callee, 100);
 			}
-		}, 100);
+		}, 100);*/
+
+	/*	context.fillStyle = "red";
+		context.beginPath();
+		context.moveTo(25, 25);
+		context.lineTo(150, 25);
+		context.lineTo(25, 150);
+		context.fill();*/
+/*		context.strokeStyle = "red";
+		context.beginPath();
+		context.moveTo(25, 25);
+		context.lineTo(150, 25);
+		context.lineTo(25, 150);
+		context.closePath();
+		context.stroke();*/
+
+
+		///////////////////////////////
+		// 5.3.1 绘制二次方贝塞尔曲线
+		//////////////////////////////
+
+		// 下面开始绘制二次方贝塞尔曲线
+		// c.setAttribute("width", 300);
+		// c.setAttribute("height", 200);
+		/*context.strokeStyle = "#f33";
+		context.beginPath();
+		context.moveTo(0 , 200);
+		context.quadraticCurveTo(75, 50, 300, 200);
+		context.stroke();
+		context.globalCompositeOperation = "source-over";
+		// 下面绘制的直线用于表示上面曲线的控制点和控制线，控制点最表即两直线的焦点 (75, 50)
+		context.strokeStyle = "#FF00FF";
+		context.beginPath();
+		context.moveTo(75, 50);
+		context.lineTo(0, 200);
+		context.moveTo(75, 50);
+		context.lineTo(300, 200);
+		context.stroke();*/
+
+		// 三次方贝塞尔曲线
+		/*context.strokeStyle = "#f33";
+		context.beginPath();
+		context.moveTo(0 , 200);
+		context.bezierCurveTo(25, 50, 75, 50, 300, 200);
+		context.stroke();
+		context.globalCompositeOperation = "source-over";
+
+		context.strokeStyle = "#f33";
+		context.moveTo(25, 50);
+		context.lineTo(0, 200);
+		context.moveTo(75, 50);
+		context.lineTo(300, 200);
+		context.stroke();*/
+
+		/////////////////////////////
+		// 图形的变换
+		////////////////////////////
+
+		// 开始绘制
+		/*context.fillStyle = "#FF00FF";
+		context.strokeStyle = "blue";
+		context.fillRect(20, 20, 100, 100);
+		context.strokeRect(20, 20, 100, 100);
+		context.fill();
+		context.stroke();
+		// 保存当前Canvas状体
+		context.save();
+		// 绘制另外一个矩形
+		context.fillStyle = "#ff0000";
+		context.strokeStyle = "green";
+		context.fillRect(140, 20, 100, 100);
+		context.strokeRect(140, 20, 100, 100);
+		context.fill();
+		context.stroke();
+		// 回复第一个矩形的状态
+		context.restore();
+		// 绘制两个矩形
+		context.fillRect(20, 140, 50, 50);
+		context.strokeRect(80, 140, 50, 50);*/
+
+		// 移动坐标空间
+		function drawTop(ctx, fillStyle){
+			ctx.fillStyle = fillStyle;
+			ctx.beginPath();
+			ctx.arc(0, 0, 30, 0, Math.PI, true);
+			ctx.closePath();
+			ctx.fill();
+		}
+
+		function drawGrip (ctx) {
+			ctx.save();
+			ctx.fillStyle = "blue";
+			ctx.fillRect(-1.5, 0, 1.5, 40);
+			ctx.beginPath();
+			ctx.strokeStyle = "blue";
+			ctx.arc(-5, 40, 4, Math.PI, Math.PI*2, true);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.restore();
+		}
+
+		function draw(){
+			var canvas = document.getElementById("myCanvas"),
+				ctx = canvas.getContext("2d");
+			canvas.setAttribute("width", 700);
+			canvas.setAttribute("height", 300);
+
+
+			ctx.translate(150,150);
+			var i = 0,
+				length = 10;
+			for(; i < length; i++){
+				ctx.save();
+				ctx.rotate(Math.PI*(2/4 + i/4));
+				//ctx.translate(0, -100);
+				drawTop(ctx, "rgb("+ (30*i) +"," + (255 - 30*i) + ", 255");
+				drawGrip(ctx);
+				ctx.restore();
+			}
+		}
+
+		window.onload = function(){
+			draw();
+		};
 	</script>
 </body>
 </html>
