@@ -10,11 +10,26 @@
 			context.clearRect(0, 0, 300, 200);
 		}
 	</script>
+	<style type="text/css">
+		#dialog{
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			margin: -50px 0 0 -200px;
+			width: 400px;
+			height: 100px;
+			background: #f33;
+		}
+	</style>
 </head>
 <body>
 	<div id="container">
 		<canvas id="myCanvas" width="300" height="150"></canvas>
 		<input type="button" value="重置画布" onclick="clearMap();">
+
+		<div id="dialog">
+
+		</div>
 	</div>
 	
 	<script type="text/javascript">
@@ -189,16 +204,126 @@
 			for(; i < length; i++){
 				ctx.save();
 				ctx.rotate(Math.PI*(2/4 + i/4));
-				//ctx.translate(0, -100);
+				ctx.translate(0, -100);
 				drawTop(ctx, "rgb("+ (30*i) +"," + (255 - 30*i) + ", 255");
 				drawGrip(ctx);
 				ctx.restore();
 			}
 		}
+		draw();
 
 		window.onload = function(){
-			draw();
+			
 		};
+
+		function doBubble(array){
+			var i = 0,
+				j = 0,
+				temp = 0;
+			for(; i < array.length; i++){
+				for(j = 0; j < array.length - 1 - i; j++){
+					if (array[j] > array[j+1]) {
+						temp = array[j];
+						array[j]= array[j+1];
+						array[j+1] = temp;
+					};
+				}
+			}
+			/*for(i = 0; i < array.length -1; i++){
+				if (array[i] > array[i+1]) {
+					temp = array[i];
+					array[i]= array[i+1];
+					array[i+1] = temp;
+				};
+			}*/
+		}
+
+		var ar = [100, 10, 40, 50, 20, 123, 111, 1];
+		//doBubble(ar);
+		ar.sort(function(a, b){
+			return a - b;
+		});
+
+		/*function Super(){
+			this.name ="Super";
+		}
+
+		Super.prototype.getName = function(){
+			return this.name;
+		}
+
+		function Sub(argument){
+			this.name ="sub";
+			this.level = 2;
+		}
+
+		Sub.prototype = new Super();
+		Sub.prototype.constructor = Sub;
+
+		var p = new Sub();*/
+
+
+		function extend(subType, superType){
+			//var prototype = superType.prototype;
+			var prototype = clone(superType.prototype);
+			prototype.constructor = subType;
+			//superType.prototype.constructor = superType;
+			subType.prototype = prototype;
+		}
+
+		function SuperType(name){
+			this.name = name;
+			this.colors = ["red", "blue", "green"];
+		}
+
+		SuperType.prototype.sayName = function(){
+			alert(this.name);
+		}
+
+		function SubType(name, age){
+			SuperType.call(this,name);
+			this.age = age;
+		}
+
+		extend(SubType, SuperType);
+
+		SubType.prototype.sayAge = function(){
+			alert(this.age);
+		}
+
+		function OtherType(name, age, address){
+			SubType.call(this,name, age);
+			this.address = address;
+		}
+
+		extend(OtherType, SubType);
+
+		OtherType.prototype.sayAddress = function(){
+			alert(this.address);
+		}
+
+		var o = new OtherType("tucchun", 25, "下沙");
+
+		function Animal(){}
+		var a = new Animal();
+
+		var b = {};
+		var c = new Object();
+
+
+
+
+		function clone(object){
+			var o = {};
+			for(var key in object){
+				o[key] = object[key];
+			}
+			return o;
+		}
+
+
+
 	</script>
 </body>
+
 </html>
