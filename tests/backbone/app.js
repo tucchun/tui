@@ -45,6 +45,47 @@ window.onload = function(e){
 			}
 		});
 
+		var List = Backbone.Collection.extend({
+			model: Item
+		});
+
+		var ListView = Backbone.View.extend({
+			el: document.body,
+			events: {
+				"click button#add" : "addItem"
+			},
+			initialize: function(){
+				//_.bindAll(this, "render", "addItem", "appendItem");
+
+				this.collection = new List();
+				this.collection.on("add", this.appendItem, this);
+
+				this.counter = 0;
+				this.render();
+			},
+			render: function(){
+				var self = this;
+				this.$el.append("<button id='add'>Add list item</button>");
+				this.$el.append("<ul></ul>");
+				_.each(this.collection.models, function(item){
+					self.appendItem(item);
+				}, this);
+			},
+			addItem: function(){
+				this.counter++;
+				var item = new Item();
+				item.set({
+					part2: item.get("part2") + this.counter
+				});
+				this.collection.add(item);
+			},
+			appendItem: function(item){
+				this.$("ul", this.el).append("<li>" + item.get("part1") + " " + item.get("part2") + "</li>");
+			}
+		});
+
+		var listView = new ListView();
+
 	})(window);
 
 

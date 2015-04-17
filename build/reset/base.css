@@ -31,14 +31,14 @@ i, cite, em {
 
 .clearfix:after, .clearfix:before {
 	content: "";
-	display: table;
+	display: block;
 	height: 0px;
 	clear: both;
 	visibility: hidden;
 }
 
 .clearfix {
-	*zoom: 1;
+    *zoom: 1;
 }
 
 .hide{

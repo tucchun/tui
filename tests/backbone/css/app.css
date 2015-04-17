@@ -1,0 +1,16 @@
+/*头部*/
+.header{
+    background-color: #008000;
+}
+/*内容区域*/
+.container{
+    display: -webkit-box;
+}
+.container-aside{
+    width: 100px;
+    background-color: #008080;
+}
+.container-article{
+    -webkit-box-flex: 1;
+    background-color: #219161;
+}
